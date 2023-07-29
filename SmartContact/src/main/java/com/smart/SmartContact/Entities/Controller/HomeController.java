@@ -48,7 +48,6 @@ public class HomeController {
     @PostMapping("/do_register")
     public String do_register(@ModelAttribute("user") User user,Model model){
         System.out.println("User"+user);
-
         return "signup";
     }
 }
