@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="base::Layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+<section>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="my-card">
+              <h1 class="text-center"> Sign up here</h1>
+              <form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+                  <div class="form-group">
+                      <label for="name_field">Your name</label>
+                      <input type="text" class="form-control"
+                             name="name"
+                             id="name_field"
+                             placeholder="Enter name"
+                             th:value="${user.name}"
+                      >
+                  </div>
+
+                  <div class="form-group">
+                      <label for="email_field">Your Email</label>
+                      <input type="text" class="form-control"
+                             name="email"
+                             id="email_field"
+                             aria-describedby="emailHelp"
+                             placeholder="Enter email"
+                             th:value="${user.email}"
+                      >
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="password_field">Your Password</label>
+                      <input type="password" class="form-control"
+                             name="password"
+                             id="password_field"
+                             placeholder="Enter your password">
+                  </div>
+
+                  <div class="form-group">
+                      <textarea name="about"
+                              placeholder="Enter something yourself"
+                              rows="10" class="form-control"
+                              th:value="${user.about}"></textarea>
+                  </div>
+
+                  <div class="container">
+                      <button type="submit" class="btn bg-primary btn-block text-white">Submit</button>
+                      <button type="reset" class="btn btn-warning btn-block">Reset</button>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+</body>
+</html>
